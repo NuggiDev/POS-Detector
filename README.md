@@ -29,6 +29,21 @@ If your PC has x64 .NET instead of ARM64 .NET, use:
 dotnet publish -c Release -r win-x64 --self-contained false
 ```
 
+## GitHub Releases
+
+The release workflow builds three Windows ZIP files:
+
+- `POS-Detector-win-x86.zip`
+- `POS-Detector-win-x64.zip`
+- `POS-Detector-win-arm64.zip`
+
+Create and push a version tag to publish a GitHub release:
+
+```powershell
+git tag v1.0.0
+git push origin v1.0.0
+```
+
 ## Configure
 
 The first run creates `detector_config.json`.
