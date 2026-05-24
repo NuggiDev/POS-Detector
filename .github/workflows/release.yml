@@ -19,11 +19,11 @@ jobs:
       matrix:
         include:
           - rid: win-x86
-            artifact: POS-Detector-win-x86
+            artifact: POS-Detector-win-x86.exe
           - rid: win-x64
-            artifact: POS-Detector-win-x64
+            artifact: POS-Detector-win-x64.exe
           - rid: win-arm64
-            artifact: POS-Detector-win-arm64
+            artifact: POS-Detector-win-arm64.exe
 
     steps:
       - name: Checkout
@@ -46,20 +46,20 @@ jobs:
           -p:PublishSingleFile=true
           -p:EnableCompressionInSingleFile=true
           -p:IncludeNativeLibrariesForSelfExtract=true
-          -o publish/${{ matrix.artifact }}
+          -o publish/${{ matrix.rid }}
 
-      - name: Zip
+      - name: Rename executable
         shell: pwsh
-        run: Compress-Archive -Path publish/${{ matrix.artifact }}/* -DestinationPath ${{ matrix.artifact }}.zip -Force
+        run: Copy-Item publish/${{ matrix.rid }}/PosCashDetector.exe ${{ matrix.artifact }}
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.artifact }}
-          path: ${{ matrix.artifact }}.zip
+          path: ${{ matrix.artifact }}
 
       - name: Upload release asset
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
-          files: ${{ matrix.artifact }}.zip
+          files: ${{ matrix.artifact }}

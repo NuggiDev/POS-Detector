@@ -31,11 +31,11 @@ dotnet publish -c Release -r win-x64 --self-contained false
 
 ## GitHub Releases
 
-The release workflow builds three Windows ZIP files:
+The release workflow builds three Windows executables:
 
-- `POS-Detector-win-x86.zip`
-- `POS-Detector-win-x64.zip`
-- `POS-Detector-win-arm64.zip`
+- `POS-Detector-win-x86.exe`
+- `POS-Detector-win-x64.exe`
+- `POS-Detector-win-arm64.exe`
 
 Create and push a version tag to publish a GitHub release:
 
