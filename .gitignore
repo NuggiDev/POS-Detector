@@ -1,3 +1,13 @@
 bin/
 obj/
+.vs/
 *.user
+*.suo
+*.rsuser
+*.log
+*.pdb
+*.cache
+*.nupkg
+*.snupkg
+publish/
+TestResults/
