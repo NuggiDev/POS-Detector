@@ -527,9 +527,9 @@ internal static partial class NativeSerial
     private struct CommTimeouts
     {
         public uint ReadIntervalTimeout;
-        public uint ReadTotalTimeoutMultiplier;
         public uint ReadTotalTimeoutConstant;
-        public uint WriteTotalTimeoutMultiplier;
+        public uint ReadTotalTimeoutMultiplier;
         public uint WriteTotalTimeoutConstant;
+        public uint WriteTotalTimeoutMultiplier;
     }
 }
